@@ -1,7 +1,7 @@
 function addInfo() {
 	let country = prompt("Введите название страны");
 	while (true) {
-		if (!country || !Number.isNaN(country)) {
+		if (!country || !isNaN(Number(country)) || (country.trim() === "")) {
 			country = prompt("Вы ввели некорректное значение. Введите название страны:");
 		}
 		else {
@@ -10,7 +10,7 @@ function addInfo() {
 	}
 	let capital = prompt("Введите название столицы этой страны");
 	while (true) {
-		if (!capital || !Number.isNaN(capital)) {
+		if (!capital || !isNaN(Number(capital)) || (capital.trim() === "")) {
 			capital = prompt("Вы ввели некорректное значение. Введите название cтолицы:");
 		}
 		else {
@@ -20,10 +20,11 @@ function addInfo() {
 	addСountry(country, capital);
 }
 
+
 function getInfo() {
 	let country = prompt("Введите название страны");
-	if (!country) {
-		console.log("Вы не ввели название страны");
+	if (!country || !isNaN(Number(country)) || (country.trim() === "")) {
+		console.log("Вы не ввели название страны или название некорректно");
 	}
 	else {
 		console.log(getcountryInfo(country));
@@ -34,8 +35,8 @@ function getAllInfo() {
 }
 function delInfo() {
 	let country = prompt("Введите название страны");
-	if (!country) {
-		console.log("Вы не ввели название страны");
+	if (!country || !isNaN(Number(country)) || (country.trim() === "")) {
+		console.log("Вы не ввели название страны или название некорректно");
 	}
 	else {
 		if (country in countries) {
